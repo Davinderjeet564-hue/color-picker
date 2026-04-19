@@ -1,0 +1,92 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: cursive, sans-serif;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+h1 {
+    margin-bottom: 2rem;
+}
+
+.color-container {
+    display: flex;
+    gap: 1rem;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+.color-element {
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    background-color: #000000;
+    color: #777171;
+    width: 200px;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.modal-overlay {
+    display: none;
+}
+
+.modal-overlay.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-box {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+    background-color: antiquewhite;
+}
+
+.close-button {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000;
+}
+
+.got-it-button {
+    padding: 1rem;
+    border-radius: 0.3rem;
+    background-color: aqua;
+    cursor: pointer;
+    border: none;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #000;
+}
+.got-it-button:hover {
+    background-color: #43e6e6;
+    color: #000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
