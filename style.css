@@ -22,6 +22,8 @@ h1 {
 
 .color-container {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 1rem;
     padding: 2rem;
     margin-top: 2rem;
@@ -29,6 +31,8 @@ h1 {
 
 .color-element {
     font-weight: bold;
+    min-width: 150px;
+    flex: 1 1 auto;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     background-color: #000000;
     color: #777171;
@@ -38,6 +42,22 @@ h1 {
     line-height: 100px;
     border-radius: 0.5rem;
     cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.color-element:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.color-element:focus {
+    outline: 3px solid #fff;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.color-element:active {
+    transform: scale(0.98);
 }
 
 .modal-overlay {
@@ -57,7 +77,6 @@ h1 {
 }
 
 .modal-box {
-    background-color: white;
     padding: 2rem;
     border-radius: 0.5rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -89,4 +108,16 @@ h1 {
     background-color: #43e6e6;
     color: #000;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+
+@media (max-width: 768px) {
+    .color-element {
+        width: calc(50% - 1rem);
+        min-width: 120px;
+    }
+    
+    main {
+        padding: 1rem;
+    }
 }
