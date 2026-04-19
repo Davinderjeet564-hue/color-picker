@@ -2,10 +2,10 @@ import data from './color-data.js';
 
 const colorContainer = document.querySelector('.color-container');
 const modalOverlay = document.querySelector('.modal-overlay');
-const modalBox = document.querySelector('.modal-box')
+const modalBox = document.querySelector('.modal-box');
 const closeButton = document.querySelector('.close-button');
 const gotItButton = document.querySelector('.got-it-button');
-
+const toastContainer = document.querySelector('.toast-container');
 
 data.forEach(color => {
     const colorElement = document.createElement('div');
@@ -76,7 +76,7 @@ function setLoading(element, isLoading) {
     }
 }
 
-function createDiv(textContent){
+function createNotification(textContent){
     const existingNotification = modalBox.querySelector('.notification-message');
     if (existingNotification) {
         existingNotification.remove();
@@ -89,6 +89,20 @@ function createDiv(textContent){
     modalBox.appendChild(div);
 }
 
+function showToast(message) {
+    const toast = document.createElement('div');
+    toast.textContent = message;
+    toast.classList.add('toast');
+    toastContainer.appendChild(toast);
+
+    setTimeout(() => {
+        toast.classList.add('fade-out');
+        toast.addEventListener('animationend', () => {
+            toast.remove();
+        });
+    }, 3000);
+}
+
 colorContainer.addEventListener('click', async (event) => {
     try {
         if (event.target.classList.contains('color-element')) {
@@ -96,17 +110,20 @@ colorContainer.addEventListener('click', async (event) => {
             const hexColor = rgbToHex(rgbColor)
             const isColorInClipboard = await checkClipboardForColor(hexColor);
             if (isColorInClipboard) {
-                createDiv('Color is already in clipboard!');
+                createNotification('Color is already in clipboard!');
                 showModal();
                 return;
             }
-            const colorName = event.target.textContent;
-            createDiv(`${colorName} ${hexColor} copied to clipboard!`);
-            showModal();
 
             setLoading(event.target, true);
             try {
                 await navigator.clipboard.writeText(hexColor);
+                const colorName = event.target.textContent;
+                createNotification(`${colorName} ${hexColor} copied to clipboard!`);
+                showModal();
+            } catch (clipboardError) {
+                showToast('Failed to copy to clipboard. Please try again.');
+                console.error('Clipboard write error:', clipboardError);
             } finally {
                 setLoading(event.target, false);
             }
