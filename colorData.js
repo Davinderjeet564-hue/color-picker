@@ -50,7 +50,40 @@ const data = [
     {
         name: "Lime",
         value: "#32CD32"
+    },
+    {
+        name: "Magenta",
+        value: "#FF00FF"
+    },
+    {
+        name: "Maroon",
+        value: "#800000"
+    },
+    {
+        name: "Navy",
+        value: "#000080"
+    },
+    {
+        name: "Olive",
+        value: "#808000"
+    },
+    {
+        name: "Teal",
+        value: "#008080"
+    },
+    {
+        name: "Gold",
+        value: "#FFD700"
+    },
+    {
+        name: "Silver",
+        value: "#C0C0C0"
+    },
+    {
+        name: "Lavender",
+        value: "#E6E6FA"
     }
 ];
 
 export default data;
+

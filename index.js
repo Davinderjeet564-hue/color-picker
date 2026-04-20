@@ -1,4 +1,4 @@
-import data from './color-data.js';
+import data from './colorData.js';
 
 const colorContainer = document.querySelector('.color-container');
 const modalOverlay = document.querySelector('.modal-overlay');
@@ -7,25 +7,6 @@ const closeButton = document.querySelector('.close-button');
 const gotItButton = document.querySelector('.got-it-button');
 const toastContainer = document.querySelector('.toast-container');
 
-data.forEach(color => {
-    const colorElement = document.createElement('div');
-    colorElement.className = 'color-element';
-    colorElement.style.backgroundColor = color.value;
-    colorElement.style.color = getContrastColor(color.value)
-    colorElement.textContent = color.name;
-    colorElement.setAttribute('role', 'button');
-    colorElement.setAttribute('tabindex', '0');
-    colorElement.setAttribute('aria-label', `Copy ${color.name} color to clipboard`);
-        
-    colorElement.addEventListener('keydown', (event) => {
-        if (event.key === 'Enter' || event.key === ' ') {
-            event.preventDefault();
-            event.target.click();
-        }
-    });
-
-    colorContainer.appendChild(colorElement);
-});
 
 async function checkClipboardForColor(colorCode) {
     try {
@@ -102,6 +83,26 @@ function showToast(message) {
         });
     }, 3000);
 }
+
+data.forEach(color => {
+    const colorElement = document.createElement('div');
+    colorElement.className = 'color-element';
+    colorElement.style.backgroundColor = color.value;
+    colorElement.style.color = getContrastColor(color.value)
+    colorElement.textContent = color.name;
+    colorElement.setAttribute('role', 'button');
+    colorElement.setAttribute('tabindex', '0');
+    colorElement.setAttribute('aria-label', `Copy ${color.name} color to clipboard`);
+        
+    colorElement.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            event.target.click();
+        }
+    });
+
+    colorContainer.appendChild(colorElement);
+});
 
 colorContainer.addEventListener('click', async (event) => {
     try {
