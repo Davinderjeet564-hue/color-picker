@@ -26,6 +26,30 @@ const data = [
     {
         name: "Orange",
         value: "#FFA500"
+    },
+    {
+        name: "Pink",
+        value: "#FFC0CB"
+    },
+    {
+        name: "Brown",
+        value: "#A52A2A"
+    },
+    {
+        name: "Gray",
+        value: "#808080"
+    },
+    {
+        name: "White",
+        value: "#FFFFFF"
+    },
+    {
+        name: "Cyan",
+        value: "#00FFFF"
+    },
+    {
+        name: "Lime",
+        value: "#32CD32"
     }
 ];
 

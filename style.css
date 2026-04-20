@@ -14,11 +14,16 @@ main {
     align-items: center;
     min-height: 100vh;
     padding: 2rem;
+    background-color: white;
 }
 
 h1 {
     margin-bottom: 2rem;
+    text-decoration: underline #000 solid 2px;
+    text-underline-offset: 5px;
+    color: #000;
 }
+
 
 .color-container {
     display: flex;
@@ -32,7 +37,7 @@ h1 {
 .color-element {
     font-weight: bold;
     min-width: 150px;
-    flex: 1 1 auto;
+    flex: 0 1 auto;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     background-color: #000000;
     color: #777171;
