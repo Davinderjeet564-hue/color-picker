@@ -32,6 +32,11 @@
     left: 2.5rem;
 }
 
+.theme-change-btn:focus-visible {
+    outline: 3px solid #0066ff;
+    outline-offset: 2px;
+}
+
 body.darkmode {
     background-color: #000;
     color: #fff;
