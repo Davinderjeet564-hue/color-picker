@@ -107,7 +107,7 @@ colorContainer.addEventListener('click', async (event) => {
     try {
         if (event.target.classList.contains('color-element')) {
             const rgbColor = event.target.style.backgroundColor;
-            const hexColor = rgbToHex(rgbColor)
+            const hexColor = rgbToHex(rgbColor);
             const isColorInClipboard = await checkClipboardForColor(hexColor);
             if (isColorInClipboard) {
                 createNotification('Color is already in clipboard!');
